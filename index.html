@@ -101,7 +101,7 @@
       // We don't autoplay if the user explicitly indicates not to
       // Instead, we just swap out the UI to the iframe
       // https://web.dev/prefers-reduced-motion
-      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         hideOverlayAndShowIframe();
       } else {
         // Finds the <button> and hooks up its click to play the video
