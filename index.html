@@ -32,6 +32,10 @@
         justify-content: center;
       }
 
+      #overlay.passed {
+        display: none;
+      }
+
       #enter {
         background: none;
         border-radius: 3px;
@@ -60,6 +64,22 @@
         display: none;
         position: absolute;
       }
+
+      #explainer {
+        background: white;
+        bottom: 30%;
+        display: none;
+        padding: 2rem;
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        width: 15rem;
+      }
+
+      #overlay.passed + #explainer {
+        display: initial;
+        opacity: 1;
+      }
     </style>
 
     <title>Hi | Josh Goldberg</title>
@@ -79,6 +99,16 @@
       <div id="overlay">
         <button id="enter">Enter</button>
       </div>
+      <div id="explainer">
+        This is a "rickroll" landing page for <strong>Josh Goldberg</strong>.
+        <br />
+        <strong>
+          <a href="https://joshuakgoldberg.com" target="_blank">
+            joshuakgoldberg.com
+          </a>
+        </strong>
+        is my <em>actual</em> personal site. 🙂
+      </div>
     </main>
 
     <script src="https://player.vimeo.com/api/player.js"></script>
@@ -95,7 +125,7 @@
 
         // Hides the overlay
         const overlay = document.getElementById("overlay");
-        overlay.style.display = "none";
+        overlay.className = "passed";
       }
 
       // We don't autoplay if the user explicitly indicates not to
